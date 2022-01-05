@@ -1,0 +1,60 @@
+<div class="oj-panel  ofm-dashboard-toolbar" style="padding:3px; border: 1px solid #e0e1e1!important;  background-color:#0D4C69">
+  <div class="ofm-container oj-web-applayout-max-width oj-web-applayout-content">
+    <div class="oj-flex oj-sm-align-items-center">
+      <div class="oj-sm-12 oj-md-3 oj-flex-item" style="margin-left: 42%;">
+        <h2 class="overflowText">
+          <span style="color: white;" class="ofm-toolbar-title overflowText">Dashboard</span>
+        </h2>
+      </div>
+      <div class="oj-sm-4 oj-md-4 oj-flex-item">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ofm-dashboard-summaryPanel" style="margin-top:6%;">
+  <div id="configure-deal" class="ofm-container oj-web-applayout-max-width oj-web-applayout-content">
+    <div class="oj-flex oj-sm-margin-4x-top">
+      <div class="oj-flex-item oj-sm-12 oj-md-3 ofm-sidebar-container">
+        <aside class="oj-flex-item oj-panel ofm-sidebar"
+          style="border:none;overflow-y: auto; max-height: 80%; max-width: 100%;padding: 0px!important;">
+          <div class="ofm-panel-header oj-flex " style="border-radius:10px;border: none ; width: 100%;background: radial-gradient(#033452 15%, transparent 16%) 0 0, radial-gradient(#075282 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+            background-color: #0D4C69;
+            background-size: 16px 16px;">
+            <div class="oj-flex-item oj-sm-12 oj-md-12"
+              style="border-radius:5px;border: none ;padding: 10px; width: 100%;display: block;">
+              <!-- ko if: commonFunction.user_type()=="0" -->
+              <h3 class="overflowText" data-bind=" attr: { id: '0' }" on-click="[[openAddNewsModule]]"
+                style="margin:0px;display: inline-block;width: 100%;color: white;font-size:18px; cursor: pointer;">Add
+                Category</h3>
+              <h3 class="overflowText" data-bind=" attr: { id: '1' }" on-click="[[openAddNewsModule]]"
+                style="margin:0px;display: inline-block;width: 100%;color: white;font-size:18px; cursor: pointer;">Add
+                Broadcaster</h3>
+              <h3 class="overflowText" data-bind=" attr: { id: '2' }" on-click="[[openAddNewsModule]]"
+                style="margin:0px;display: inline-block;width: 100%;color: white;font-size:18px; cursor: pointer;">Add
+                News</h3>
+                <!-- /ko -->
+                <!-- ko if: commonFunction.user_type()=="1" -->
+            <h3 class="overflowText" data-bind=" attr: { id: '2' }" on-click="[[openAddNewsModule]]"
+              style="margin:0px;display: inline-block;width: 100%;color: white;font-size:18px; cursor: pointer;">Add
+              News</h3>
+              <!-- /ko -->
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="oj-flex-item oj-sm-12 oj-md-9 " style="padding: 0px 30px;">
+        <oj-module config='[[add_news_module]]' class="oj-flex-item"></oj-module>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+<!-- Notification  -->
+<!-- ko if: messages().length> 0 -->
+<oj-module config='[[notification_module]]' class="oj-flex-item"></oj-module>
+<!-- /ko -->
+<!-- notification ends -->
+<oj-module config='[[deleteModuleCategory]]' class="oj-flex-item"></oj-module>
+<oj-module config='[[deleteModuleBroadcaster]]' class="oj-flex-item"></oj-module>

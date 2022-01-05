@@ -1,0 +1,256 @@
+<div class="oj-panel ofm-panel ofm-dashboard-toolbar"
+    style="position: relative;border: 1px solid #e0e1e1!important;background-color:#0D4C69 ;">
+    <div class="ofm-container oj-web-applayout-max-width oj-web-applayout-content">
+        <div class="oj-flex oj-sm-align-items-center">
+            <div class="oj-sm-12 oj-md-3 oj-flex-item" style="margin-left: 42%;">
+                <h2 class="overflowText">
+                    <span style="color: white;" class="ofm-toolbar-title overflowText">NEWS APPLICATION</span>
+            </div>
+            <div
+                class=" oj-sm-12 oj-md-3 oj-flex oj-sm-justify-content-flex-end oj-sm-align-self-flex-end oj-sm-only-width-100">
+                <a style="color: cadetblue;
+                font-size: 19px;
+                font-weight: 900; " href="?root=login">Login</a>
+            </div>
+            <div class="oj-sm-4 oj-md-4 oj-flex-item">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ofm-main-content ofm-dashboard-summaryPanel" style="margin-top: 0px">
+    <!-- <div class="ofm-container oj-web-applayout-max-width oj-web-applayout-content"> -->
+    <div class="oj-flex">
+        <div class="oj-flex oj-flex-item oj-sm-12 oj-md-12">
+
+            <div class="oj-flex-item oj-panel ofm-panel">
+                <div class="ofm-panel-body">
+                    <div id='menuset-container'>
+                        <oj-toolbar id="menuSet" chroming="borderless" style="background: cadetblue;">
+                            <oj-menu-button id="menuButton" style="margin-left: 1%;" class="menuBtn">
+                                <span on-click="[[homePage]]">Home</span>
+                            </oj-menu-button>
+                            <!-- ko foreach: menuItemsFirstFive -->
+                            <oj-menu-button id="menuButton1" style="margin-left: 8%;" class="menuBtn">
+                                <span data-bind="text: $data.label" on-click="[[$parent.menuItemAction1]]"></span>
+                            </oj-menu-button>
+
+                            <!-- /ko-->
+                            <!-- ko if: menuItemsLength()>5-->
+                            <oj-menu-button id="menuButton2" style="margin-left: 8%;" class="menuBtn">
+                                More
+                                <oj-menu id="myMenu2" slot="menu" style="display:none"
+                                    on-oj-action="[[menuItemAction]]">
+                                    <oj-bind-for-each data="[[menuItems]]">
+                                        <template>
+                                            <oj-option :id="[[$current.data.id]]" :value="[[$current.data.label]]">
+
+                                                <span>
+                                                    <oj-bind-text value="[[$current.data.label]]"></oj-bind-text>
+                                                </span>
+                                            </oj-option>
+                                        </template>
+                                    </oj-bind-for-each>
+                                </oj-menu>
+                            </oj-menu-button>
+                            <!-- /ko-->
+                        </oj-toolbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>
+
+<div class="ofm-main-content ofm-dashboard-summaryPanel" style="margin-top: 0px">
+    <div class="oj-flex oj-sm-margin-1x-top">
+        <!-- ko if: selectedMenuItem() == '' -->
+        <div class="oj-flex oj-flex-item oj-sm-12 oj-md-8">
+            <div class="oj-flex-item oj-panel ofm-panel" style="background: whitesmoke;
+            border: none;">
+                <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-4x">
+                    <p class="oj-text-tertiary-color">What's New?</p>
+                    <div id="demoContent" style="position: relative;">
+                        <!-- ko if:pagingDataProvider()!="" -->
+                        <oj-bind-for-each data='[[pagingDataProvider()]]'>
+                            <template data-oj-as="row">
+                                <div
+                                    class=" oj-sm-padding-3x oj-md-padding-4x ofm-form-group ofm-card oj-flex oj-sm-justify-content-space-between">
+                                    <!-- radio selector -->
+                                    <!-- <div class="ofm-separator oj-sm-margin-3x-vertical"></div> -->
+
+                                    <div
+                                        class="oj-lg-11 oj-flex-item oj-sm-align-items-center oj-sm-only-margin-2x-bottom">
+                                        <!-- <ul id="ulResults"> -->
+                                        <div class="oj-flex-item" :id="[[row.data.newsId]]" style="flex-wrap: nowrap">
+                                            <div class="demo-content oj-flex-item">
+
+                                                <div>
+                                                    <strong style="color: #817872">
+                                                        <oj-bind-text value="[[row.data.categoryName.toUpperCase()]]">
+                                                        </oj-bind-text>
+                                                    </strong>
+                                                </div>
+                                                <div style=" padding-left: 0px;"
+                                                    class="oj-sm-padding-2x oj-md-padding-2x">
+                                                    <strong style=" font-size: 15px;">
+                                                        <oj-bind-text value="[[row.data.newsHeading]]"></oj-bind-text>
+                                                    </strong>
+                                                    <span class="demo-username">
+                                                        <oj-bind-text value="[['@' + row.data.broadcasterName]]">
+                                                        </oj-bind-text>
+                                                    </span>
+                                                </div>
+                                                <div class="demo-tweet overflowText">
+                                                    <span style="word-wrap: break-word">
+                                                        <oj-bind-text value="[[row.data.newsContent]]"></oj-bind-text>
+                                                    </span>
+
+                                                </div>
+                                                <span class="demo-metadata">
+                                                    <oj-bind-text value="[[row.data.date]]"></oj-bind-text>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="oj-lg-1 oj-flex-item ">
+                                        <a data-bind="attr: { id: 'newsdescid'+row.data.newsId }"
+                                            on-click="[[newpageNav]]"
+                                            class="icon-right oj-flex oj-sm-align-items-center oj-sm-justify-content-flex-end"></a>
+                                    </div>
+                                </div>
+                            </template>
+                        </oj-bind-for-each>
+                        <oj-paging-control id="paging" data='[[pagingDataProvider()]]' page-size="5">
+                        </oj-paging-control>
+                        <!-- /ko-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /ko-->
+        <!-- ko ifnot: selectedMenuItem() == '' -->
+        <div class="oj-flex oj-flex-item oj-sm-12 oj-md-8">
+            <div class="oj-flex-item oj-panel ofm-panel" style="background: whitesmoke;
+            border: none;">
+                <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-4x">
+                    <p class="oj-text-tertiary-color">News By Categories</p>
+                    <div id="demoContent" style="position: relative;">
+                        <!-- ko if:pagingDataProviderForCategory()!="" -->
+                        <oj-bind-for-each data='[[pagingDataProviderForCategory()]]'>
+                            <template data-oj-as="row">
+                                <div
+                                    class=" oj-sm-padding-3x oj-md-padding-4x ofm-form-group ofm-card oj-flex oj-sm-justify-content-space-between">
+                                    <!-- radio selector -->
+                                    <!-- <div class="ofm-separator oj-sm-margin-3x-vertical"></div> -->
+
+                                    <div
+                                        class="oj-lg-11 oj-flex-item oj-sm-align-items-center oj-sm-only-margin-2x-bottom">
+                                        <!-- <ul id="ulResults"> -->
+                                        <div class="oj-flex-item" :id="[[row.data.newsId]]" style="flex-wrap: nowrap">
+                                            <div class="demo-content oj-flex-item">
+
+                                                <div>
+                                                    <strong style="color: #817872">
+                                                        <oj-bind-text value="[[row.data.categoryName.toUpperCase()]]">
+                                                        </oj-bind-text>
+                                                    </strong>
+                                                </div>
+                                                <div style=" padding-left: 0px;"
+                                                    class="oj-sm-padding-2x oj-md-padding-2x">
+                                                    <strong style=" font-size: 15px;">
+                                                        <oj-bind-text value="[[row.data.newsHeading]]"></oj-bind-text>
+                                                    </strong>
+                                                    <span class="demo-username">
+                                                        <oj-bind-text value="[['@' + row.data.broadcasterName]]">
+                                                        </oj-bind-text>
+                                                    </span>
+                                                </div>
+                                                <div class="demo-tweet overflowText">
+                                                    <span style="word-wrap: break-word">
+                                                        <oj-bind-text value="[[row.data.newsContent]]"></oj-bind-text>
+                                                    </span>
+
+                                                </div>
+                                                <span class="demo-metadata">
+                                                    <oj-bind-text value="[[row.data.date]]"></oj-bind-text>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="oj-lg-1 oj-flex-item ">
+                                        <a data-bind="attr: { id: 'newsdescid'+row.data.newsId }"
+                                            on-click="[[newpageNav]]"
+                                            class="icon-right oj-flex oj-sm-align-items-center oj-sm-justify-content-flex-end"></a>
+                                    </div>
+                                </div>
+                            </template>
+                        </oj-bind-for-each>
+                        <oj-paging-control id="paging" data='[[pagingDataProviderForCategory()]]' page-size="5">
+                        </oj-paging-control>
+                        <!-- /ko-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /ko-->
+        <div class="oj-flex-item oj-flex-item oj-sm-12 oj-md-4">
+            <div class="oj-flex-item oj-panel ofm-panel">
+                <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-4x">
+                    <p style="font-weight: 900;
+                    color: #0d4c69;" class="oj-text-tertiary-color">What's Hot?</p>
+                    <div id="demoContent" style="position: relative;">
+                        <!-- ko if:pagingDataProviderTrendingNews()!="" -->
+
+
+                        <oj-bind-for-each data='[[pagingDataProviderTrendingNews()]]'>
+                            <template data-oj-as="row">
+                                <div class=" ofm-form-group oj-flex oj-sm-justify-content-space-between">
+                                    <!-- radio selector -->
+                                    <!-- <div class="ofm-separator oj-sm-margin-3x-vertical"></div> -->
+
+                                    <div
+                                        class="oj-lg-11 oj-flex-item oj-sm-align-items-center oj-sm-only-margin-2x-bottom">
+
+                                        <div class="oj-flex-item" :id="[[row.data.newsId]]" style="flex-wrap: nowrap">
+                                            <div class="demo-content oj-flex-item">
+
+                                                <div style=" padding-left: 0px;"
+                                                    class="oj-sm-padding-2x oj-md-padding-2x">
+                                                    <strong style=" font-size: 15px;">
+                                                        <oj-bind-text value="[[row.data.newsHeading]]"></oj-bind-text>
+                                                    </strong>
+                                                </div>
+                                                <div class=" overflowText oj-sm-padding-2x oj-md-padding-2x ">
+                                                    <span style="word-wrap: break-word">
+                                                        <oj-bind-text value="[[row.data.newsContent]]"></oj-bind-text>
+                                                    </span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="oj-lg-1 oj-flex-item ">
+                                        <a data-bind="attr: { id: 'newsdescids'+row.data.newsId }"
+                                            on-click="[[newpageNavforHotNews]]"
+                                            class="icon-right oj-flex oj-sm-align-items-center oj-sm-justify-content-flex-end"></a>
+
+                                    </div>
+                                </div>
+                            </template>
+                        </oj-bind-for-each>
+                        <!-- </ul> -->
+                        <oj-paging-control id="paging" data='[[pagingDataProviderTrendingNews()]]' page-size="2">
+                        </oj-paging-control>
+                        <!-- /ko-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

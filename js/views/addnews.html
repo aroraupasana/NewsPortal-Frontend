@@ -1,0 +1,157 @@
+<!-- ko if: section.section_to_display()=="0" -->
+<div id="section1" class="oj-flex-item  oj-md-padding-4x-start">
+  <div class="oj-flex-item oj-panel ofm-panel oj-sm-only-margin-3x-top">
+    <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-2x">
+      <div id="pricing-config-container" class="pricing-config-container default-config">
+        <div class="oj-sm-padding-3x-vertical">
+          <oj-label class="ofm-label">Category</oj-label>
+          <oj-input-text class="ofm-input" value="{{category_name}}"></oj-input-text>
+          <oj-button
+            class="goBtn lg oj-button oj-component oj-enabled oj-button-outlined-chrome oj-button-text-icon-start oj-complete oj-default"
+            chroming="outlined" on-click="[[addCategory]]"
+            style="margin-top: 3px;padding: 4px 10px;width: 120px;height: 38px;">
+            <span slot="startIcon" class="fa fa-plus" style="color: white;"></span>
+            <span style="color: white; font-size: 12px; font-weight: 500;">Add</span>
+          </oj-button>
+        </div>
+
+        <div class="oj-flex oj-flex-item oj-sm-14 oj-md-18 oj-lg-14 oj-xs-13 oj-xl-12 d-flex">
+          <div class="oj-flex-item oj-panel panelCard ofm-card ofm-panel " style="border: none!important;">
+            <div id="newProspects-table-wrapper">
+              <oj-table id='catTable' class="ofm-table" aria-label='Categories Table' data='[[section.category_data]]'
+                columns='{{section.category_column}}' style='width: 100%; overflow-y: hidden;'>
+                <oj-paging-control id="paging1" style="background-color:whitesmoke;" data='[[section.category_data]]'
+                  page-size=5 slot='bottom'>
+                </oj-paging-control>
+              </oj-table>
+              <script type="text/html" id="categoryName">
+                <td class="overflowText" data-bind="text: $context.row.categoryName ">
+                </td>
+              </script>
+              <!-- <script type="text/html" id="categoryType">
+                <td class="overflowText" data-bind="text: $context.row.categoryType ">
+                </td>
+              </script> -->
+              <script type="text/html" id="icons">
+                <td >
+                    <oj-button title="Delete" on-oj-action="[[$parent.section.openDeleteModuleCategory]]"
+                    data-bind="attr:{id:$context.row.categoryId }" 
+                    class="iconsButton" id="delete_btn" style="height: 25px !important; width: 26px !important;" >
+                        <i style=" border-radius: 100%;cursor: pointer; background: rgb(175, 71, 60); display: inline-flex; align-items: center; justify-content: center; height: 24px !important; width: 24px !important; color: white !important; visibility: visible;" class="fa fa-trash" >
+                          </i>
+                    </oj-button>
+                </td>
+              </script>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /ko -->
+
+<!-- ko if: section.section_to_display()=="1" -->
+<div id="section2" class="oj-flex-item  oj-md-padding-4x-start">
+  <div class="oj-flex-item oj-panel ofm-panel oj-sm-only-margin-3x-top">
+    <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-2x">
+      <div id="pricing-config-container" class="pricing-config-container default-config">
+        <div class="oj-sm-padding-3x-vertical">
+          <oj-label class="ofm-label">BroadCaster</oj-label>
+          <oj-input-text class="ofm-input" value="{{broadcaster_name}}"></oj-input-text>
+          <oj-button
+            class="goBtn lg oj-button oj-component oj-enabled oj-button-outlined-chrome oj-button-text-icon-start oj-complete oj-default"
+            chroming="outlined" on-click="[[addBroadcaster]]"
+            style="margin-top: 3px;padding: 4px 10px;width: 120px;height: 38px;">
+            <span slot="startIcon" class="fa fa-plus" style="color: white;"></span>
+            <span style="color: white; font-size: 12px; font-weight: 500;">Add</span>
+          </oj-button>
+        </div>
+
+        <div class="oj-flex oj-flex-item oj-sm-14 oj-md-18 oj-lg-14 oj-xs-13 oj-xl-12 d-flex">
+          <div class="oj-flex-item oj-panel panelCard ofm-card ofm-panel " style="border: none!important;">
+            <div id="newProspects-table-wrapper">
+              <oj-table id='catTable' class="ofm-table" aria-label='Categories Table'
+                data='[[section.broadcaster_data]]' columns='{{section.broadcaster_column}}'
+                style='width: 100%; overflow-y: hidden;'>
+                <oj-paging-control id="paging1" style="background-color:whitesmoke;" data='[[section.broadcaster_data]]'
+                  page-size=5 slot='bottom'>
+                </oj-paging-control>
+              </oj-table>
+              <script type="text/html" id="broadcasterName">
+                  <td class="overflowText" data-bind="text: $context.row.broadcasterName ">
+                  </td>
+                </script>
+              <script type="text/html" id="icons">
+                  <td >
+                      <oj-button title="Delete" on-oj-action="[[$parent.section.openDeleteModulebroadcaster]]"
+                      data-bind="attr:{id:$context.row.broadcasterId }" 
+                      class="iconsButton" id="delete_btn" style="height: 25px !important; width: 26px !important;" >
+                          <i style=" border-radius: 100%;cursor: pointer; background: rgb(175, 71, 60); display: inline-flex; align-items: center; justify-content: center; height: 24px !important; width: 24px !important; color: white !important; visibility: visible;" class="fa fa-trash" >
+                            </i>
+                      </oj-button>
+                  </td>
+                </script>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /ko -->
+
+<!-- ko if: section.section_to_display()=="2" -->
+<div id="section3" class="oj-flex-item  oj-md-padding-4x-start">
+  <div class="oj-flex-item oj-panel ofm-panel oj-sm-only-margin-3x-top">
+    <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-4x">
+      <div id="pricing-config-container" class="pricing-config-container default-config">
+        <div class="oj-sm-padding-3x-vertical">
+          <oj-label class="ofm-label">Category</oj-label>
+          <oj-combobox-one id="combobox1" value="{{category_val_news}}" label-hint="enabled"
+            options="[[categories_list]]" style="max-width:20em">
+          </oj-combobox-one>
+        </div>
+
+        <div class="oj-sm-padding-3x-vertical">
+          <oj-label class="ofm-label">Broadcaster</oj-label>
+          <oj-combobox-one id="combobox2" value="{{broadcaster_val_news}}" label-hint="enabled"
+            options="[[broadcaster_list]]" style="max-width:20em">
+          </oj-combobox-one>
+        </div>
+
+        <div class="oj-sm-padding-3x-vertical">
+          <oj-label class="ofm-label">News Heading</oj-label>
+          <oj-input-text class="ofm-input" value="{{news_heading_val}}"></oj-input-text>
+        </div>
+
+        <div class="oj-sm-padding-3x-vertical">
+          <oj-label class="ofm-label">News Content</oj-label>
+          <oj-text-area id="control2" value="{{news_content_val}}" rows="6" label-hint="News Content"></oj-text-area>
+        </div>
+      </div>
+    </div>
+    <!-- START: PANEL FOOTER -->
+    <div
+      class="ofm-panel-footer oj-flex oj-sm-justify-content-space-between oj-sm-align-items-center oj-sm-padding-3x oj-md-padding-4x">
+      <div class="oj-flex oj-sm-justify-content-flex-end oj-sm-align-self-flex-end oj-sm-only-width-100">
+        <oj-button class="loginBtn ofm-button oj-button oj-component oj-enabled oj-default oj-button-full-chrome oj-button-text-only 
+        oj-complete oj-sm-margin-3x-end" on-oj-action="[[saveNewsFeed]]">
+          Save
+        </oj-button>
+      </div>
+
+      <div class="oj-flex oj-sm-justify-content-flex-end oj-sm-align-self-flex-end oj-sm-only-width-100">
+        <a href='?root=newsfeed'>Direct to News Feed -></a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- /ko -->

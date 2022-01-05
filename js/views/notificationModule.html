@@ -1,0 +1,21 @@
+<div id="sampleDemo" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+
+        <div id="notificationMessages">
+
+            <!-- ko if: login.messages().length> 0 -->
+            <oj-messages messages="[[login.messagesDataprovider]]" position="{}" display="notification">
+            </oj-messages>
+            <!-- /ko -->
+            <!-- ko if: signup.messages().length> 0 -->
+            <oj-messages messages="[[signup.messagesDataprovider]]" position="{}" display="notification">
+            </oj-messages>
+            <!-- /ko -->
+             <!-- ko if: dashboard.messages().length> 0 -->
+             <oj-messages messages="[[dashboard.messagesDataprovider]]" position="{}" display="notification">
+            </oj-messages>
+            <!-- /ko -->
+        </div>
+
+    </div>
+</div>

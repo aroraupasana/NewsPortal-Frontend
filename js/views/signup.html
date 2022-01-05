@@ -1,0 +1,76 @@
+<div class="oj-panel ofm-panel ofm-dashboard-toolbar" style="position: relative;border: 1px solid #e0e1e1!important; background-color:#0D4C69">
+  <div class="ofm-container oj-web-applayout-max-width oj-web-applayout-content">
+    <div class="oj-flex oj-sm-align-items-center">
+      <div class="oj-sm-12 oj-md-3 oj-flex-item" style="margin-left: 42%;">
+        <h2 class="overflowText">
+          <span style="color: white;" class="ofm-toolbar-title overflowText">NEWS APPLICATION</span>
+      </div>
+      <!-- ko if: messages().length> 0 -->
+      <oj-module config='[[notification_module]]' class="oj-flex-item"></oj-module>
+      <!-- /ko -->
+      <div class="oj-sm-4 oj-md-4 oj-flex-item">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ofm-main-content ofm-dashboard-summaryPanel" style="margin-top: 0px">
+  <div class="ofm-container oj-web-applayout-max-width oj-web-applayout-content">
+    <div class="oj-flex oj-sm-margin-4x-top">
+      <div class="oj-flex oj-flex-item oj-sm-12 oj-md-5" style="margin-left: 30%;">
+
+        <div class="oj-flex-item oj-panel ofm-panel">
+          <div class="ofm-panel-body oj-sm-padding-3x oj-md-padding-4x">
+            <div>
+              <h2 class="ofm-section-title oj-sm-margin-3x-bottom">Sign up</h2>
+              <div class="oj-sm-margin-3x-bottom">
+                <oj-label for="newDeal-name"
+                  class="ofm-label block oj-sm-margin-1x-bottom oj-label oj-component oj-inputtext-label oj-complete">
+                  <div class="oj-label-group"><label data-oj-internal="" id="ui-id-10" for="newDeal-name|input"
+                      class="oj-component-initnode">Email Address</label></div>
+                </oj-label>
+                <oj-input-text class="ofm-input oj-inputtext oj-form-control oj-component oj-complete" id="newDeal-name"
+                  value="{{email_val}}"><input data-oj-internal="" aria-label="Deal Name" type="text" placeholder=""
+                    class="oj-inputtext-input oj-component-initnode" id="newDeal-name|input"></oj-input-text>
+              </div>
+              <div class="oj-sm-margin-3x-bottom">
+                <oj-label class="ofm-label oj-sm-margin-1x-bottom oj-label oj-component oj-complete">
+                  <div class="oj-label-group"><label data-oj-internal="" id="ui-id-11" class="oj-component-initnode">
+                      Username</label></div>
+                </oj-label>
+                <oj-input-text class="ofm-input oj-inputtext oj-form-control oj-component oj-complete"
+                  help.instruction="User Name can not be more than 10 characters" value="{{user_name}}" length.max="10">
+                  <input data-oj-internal="" type="text" placeholder=""
+                    class="oj-inputtext-input oj-component-initnode">
+                </oj-input-text>
+              </div>
+              <div class="oj-sm-margin-3x-bottom">
+                <oj-label class="ofm-label oj-sm-margin-1x-bottom oj-label oj-component oj-complete">
+                  <div class="oj-label-group"><label data-oj-internal="" id="ui-id-11" class="oj-component-initnode">
+                      Password</label></div>
+                </oj-label>
+                <oj-input-password class="ofm-input oj-inputtext oj-form-control oj-component oj-complete"
+                  value="{{password_val}}" length.max="10">
+                  <input data-oj-internal="" type="password" placeholder=""
+                    class="oj-inputtext-input oj-component-initnode">
+                </oj-input-password>
+              </div>
+
+              <div class="oj-sm-margin-3x-bottom">
+                <oj-button class="loginBtn ofm-button oj-button oj-component oj-enabled oj-default oj-button-full-chrome oj-button-text-only 
+                    oj-complete" data-bind="click:signup">
+                  <button data-oj-internal="" aria-labelledby="ui-id-40" class="oj-button-button oj-component-initnode"
+                    style="width: 100% !important; ">
+                    <div class="oj-button-label">
+                      <span class="oj-button-text" id="ui-id-40">
+                        Sign up
+                      </span>
+                    </div>
+                  </button>
+                </oj-button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,21 @@
+<oj-dialog style="display:none;width:300px!important;" id="deleteModuleCategory" dialog-title="Deletion">
+    <div slot="body">
+        <div class="oj-flex">
+            <div class="oj-flex-item oj-sm-12 oj-md-12  ">
+                Are you sure? You want to delete.</p>
+            </div>
+        </div>
+    </div>
+    <div slot="footer">
+        <oj-button id="cancelDelete" data-bind="click: dashboard.cancelDeletion"
+            class="resetButton oj-button oj-component oj-enabled oj-button-outlined-chrome oj-button-text-icon-start oj-complete oj-default
+             pull-right ">
+            <span>Cancel</span>
+        </oj-button>
+        <oj-button id="yesDelete" data-bind="click: dashboard.deletecategory"
+            class="loginBtn ofm-button oj-button oj-component oj-enabled oj-default oj-button-full-chrome oj-button-text-only 
+            oj-complete ofm-button xs pull-right ">
+            <span>Yes</span>
+        </oj-button>
+    </div>
+</oj-dialog>
